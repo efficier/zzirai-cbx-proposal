@@ -1,0 +1,1370 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>초콜릿박스 커뮤니티 ZMOT 마케팅 제안서</title>
+  <meta name="description" content="찌라이 기반 초콜릿박스 커뮤니티, 검색, 후기, 리텐션 마케팅 제안서">
+  <style>
+    :root {
+      --ink: #191817;
+      --muted: #68615b;
+      --line: #e7dfd7;
+      --paper: #fffaf4;
+      --soft: #f5efe7;
+      --cream: #fffdfa;
+      --accent: #c3422f;
+      --accent-2: #1f7769;
+      --accent-3: #b1822c;
+      --dark: #2a211d;
+      --shadow: 0 18px 60px rgba(42, 33, 29, .13);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", "Apple SD Gothic Neo", Arial, sans-serif;
+      line-height: 1.65;
+      word-break: keep-all;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      padding: 14px clamp(18px, 4vw, 54px);
+      background: rgba(255, 250, 244, .88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(42, 33, 29, .08);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .brand-logo {
+      display: block;
+      height: 34px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .brand-logo.jjirai {
+      width: 86px;
+      border-radius: 5px;
+      box-shadow: 0 4px 12px rgba(42,33,29,.08);
+    }
+
+    .brand-logo.choco {
+      width: 34px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(42,33,29,.12);
+    }
+
+    .brand-plus {
+      color: var(--muted);
+      font-size: 18px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .hero {
+      min-height: 84vh;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 560px);
+      align-items: center;
+      gap: clamp(30px, 5vw, 72px);
+      padding: clamp(42px, 7vw, 92px) clamp(18px, 5vw, 72px) 42px;
+      background:
+        linear-gradient(90deg, rgba(255,250,244,.98) 0%, rgba(255,250,244,.92) 48%, rgba(255,250,244,.35) 100%),
+        url("assets/chocolatebox-home.png") center right / cover no-repeat;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 30px;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    h1, h2, h3 { line-height: 1.18; letter-spacing: 0; margin: 0; }
+    h1 {
+      max-width: 820px;
+      margin-top: 18px;
+      font-size: clamp(42px, 7vw, 92px);
+      font-weight: 900;
+    }
+
+    .lead {
+      max-width: 720px;
+      margin: 24px 0 0;
+      color: #4d4540;
+      font-size: clamp(18px, 2vw, 23px);
+      font-weight: 560;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 11px 18px;
+      border-radius: 7px;
+      font-weight: 800;
+      border: 1px solid var(--dark);
+    }
+
+    .button.primary {
+      color: #fff;
+      background: var(--dark);
+    }
+
+    .button.secondary {
+      background: rgba(255,255,255,.65);
+    }
+
+    .hero-panel {
+      align-self: end;
+      background: rgba(255,255,255,.84);
+      border: 1px solid rgba(42,33,29,.1);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-panel img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      object-position: top;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .panel-body { padding: 20px; }
+    .panel-body strong { display: block; font-size: 18px; }
+    .panel-body span { color: var(--muted); font-size: 14px; }
+
+    .hero-logo {
+      width: 190px;
+      margin-top: 28px;
+      border-radius: 8px;
+      box-shadow: 0 14px 32px rgba(42,33,29,.14);
+    }
+
+    section {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(56px, 8vw, 96px) clamp(18px, 5vw, 72px);
+    }
+
+    section::after {
+      content: "";
+      position: absolute;
+      right: clamp(16px, 4vw, 54px);
+      bottom: 22px;
+      width: 96px;
+      height: 38px;
+      background: url("assets/jjirai-logo.svg") center / contain no-repeat;
+      opacity: .72;
+      pointer-events: none;
+      filter: drop-shadow(0 8px 18px rgba(42,33,29,.12));
+    }
+
+    .hero::after { bottom: 18px; opacity: .58; }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 460px);
+      gap: 32px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(30px, 4.6vw, 58px);
+      font-weight: 900;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .card {
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: 0 8px 26px rgba(42, 33, 29, .05);
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .metric {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-height: 148px;
+    }
+
+    .metric b {
+      color: var(--accent);
+      font-size: clamp(34px, 5vw, 54px);
+      line-height: 1;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-weight: 650;
+    }
+
+    .band {
+      background: var(--dark);
+      color: #fff;
+    }
+
+    .band .section-head p,
+    .band .card p,
+    .band .muted { color: rgba(255,255,255,.68); }
+
+    .band .card {
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.16);
+      box-shadow: none;
+    }
+
+    .flow {
+      counter-reset: step;
+      display: grid;
+      gap: 14px;
+    }
+
+    .flow-item {
+      display: grid;
+      grid-template-columns: 54px minmax(0, 1fr);
+      gap: 16px;
+      align-items: start;
+      padding: 18px;
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .flow-item::before {
+      counter-increment: step;
+      content: counter(step);
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      color: #fff;
+      background: var(--accent-2);
+      border-radius: 8px;
+      font-weight: 900;
+    }
+
+    .flow-item h3 { font-size: 20px; margin-bottom: 4px; }
+    .flow-item p { margin: 0; color: var(--muted); }
+
+    .funnel-board {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
+      gap: 28px;
+      align-items: center;
+      padding: clamp(22px, 4vw, 42px);
+      background:
+        linear-gradient(135deg, rgba(255,217,31,.28), rgba(227,52,47,.08)),
+        #fffdf8;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .funnel-stack {
+      display: grid;
+      gap: 12px;
+      justify-items: center;
+    }
+
+    .funnel-stage {
+      width: var(--w);
+      min-height: 82px;
+      display: grid;
+      grid-template-columns: 54px minmax(0, 1fr);
+      gap: 14px;
+      align-items: center;
+      padding: 16px clamp(18px, 3vw, 34px);
+      color: #fff;
+      background: var(--c);
+      clip-path: polygon(4% 0, 96% 0, 88% 100%, 12% 100%);
+      box-shadow: 0 12px 24px rgba(42,33,29,.12);
+    }
+
+    .funnel-stage b {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.32);
+      font-size: 15px;
+    }
+
+    .funnel-stage strong {
+      display: block;
+      font-size: clamp(20px, 2.4vw, 30px);
+      line-height: 1.12;
+    }
+
+    .funnel-stage span {
+      display: block;
+      margin-top: 4px;
+      color: rgba(255,255,255,.78);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .funnel-result {
+      padding: clamp(22px, 3vw, 34px);
+      background: var(--dark);
+      color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 18px 44px rgba(42,33,29,.18);
+    }
+
+    .funnel-result .tag {
+      display: inline-flex;
+      padding: 6px 10px;
+      color: var(--dark);
+      background: #ffd91f;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .funnel-result h3 {
+      margin-top: 16px;
+      font-size: clamp(26px, 3.6vw, 44px);
+    }
+
+    .funnel-result p {
+      margin: 14px 0 0;
+      color: rgba(255,255,255,.72);
+    }
+
+    .funnel-mini {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .funnel-mini div {
+      min-height: 74px;
+      padding: 12px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .shot {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .shot img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      object-position: top;
+      border-bottom: 1px solid var(--line);
+      background: #eee;
+    }
+
+    .phone-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      align-items: start;
+    }
+
+    .phone {
+      overflow: hidden;
+      background: #111;
+      border: 10px solid #111;
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .phone img {
+      width: 100%;
+      height: 560px;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 18px;
+    }
+
+    .caption {
+      padding: 14px 4px 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .table th, .table td {
+      padding: 16px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .table th {
+      width: 24%;
+      color: var(--accent);
+      background: #fff4eb;
+      font-size: 15px;
+    }
+
+    .table tr:last-child th,
+    .table tr:last-child td { border-bottom: 0; }
+
+    .sample {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+    }
+
+    .sample .label {
+      color: var(--accent-2);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .sample h3 { margin: 8px 0 12px; }
+    .sample p { color: #4d4540; margin: 0 0 10px; }
+
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(300px, .9fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .evidence-stack {
+      display: grid;
+      gap: 18px;
+    }
+
+    .evidence-shot {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .evidence-shot img {
+      width: 100%;
+      max-height: 620px;
+      object-fit: cover;
+      object-position: top;
+      border-bottom: 1px solid var(--line);
+      background: #111;
+    }
+
+    .evidence-shot.tall img { max-height: 760px; }
+    .evidence-shot.wide img { max-height: 360px; }
+
+    .insight-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .insight {
+      display: grid;
+      grid-template-columns: 12px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+      color: #4d4540;
+    }
+
+    .insight::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      margin-top: 10px;
+      border-radius: 50%;
+      background: var(--accent-2);
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .pill {
+      display: inline-flex;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .quote {
+      padding: 34px;
+      background: #fff;
+      border-left: 5px solid var(--accent);
+      border-radius: 8px;
+      font-size: clamp(22px, 3vw, 34px);
+      font-weight: 850;
+      line-height: 1.35;
+    }
+
+    .foot {
+      padding: 34px clamp(18px, 5vw, 72px);
+      background: #151210;
+      color: rgba(255,255,255,.72);
+      font-size: 14px;
+    }
+
+    .foot strong { color: #fff; }
+    .source-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .source-links a {
+      color: #fff;
+      border-bottom: 1px solid rgba(255,255,255,.35);
+    }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-panel { max-width: 620px; }
+      section::after { width: 74px; height: 29px; right: 16px; bottom: 12px; opacity: .5; }
+      .section-head, .grid.three, .grid.two, .phone-grid, .evidence-grid, .funnel-board { grid-template-columns: 1fr; }
+      .funnel-stage { width: 100% !important; clip-path: polygon(0 0, 100% 0, 94% 100%, 6% 100%); }
+      .funnel-mini { grid-template-columns: 1fr; }
+      .phone img { height: 520px; }
+      .table th, .table td { display: block; width: 100%; }
+      .table th { border-bottom: 0; padding-bottom: 4px; }
+      .table td { padding-top: 4px; }
+    }
+
+    @media print {
+      @page {
+        size: A4 landscape;
+        margin: 8mm;
+      }
+
+      html,
+      body {
+        width: 297mm;
+        background: #fffaf4;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      body {
+        font-size: 10.5pt;
+        line-height: 1.5;
+      }
+
+      .nav {
+        position: static;
+        height: 11mm;
+        padding: 0 7mm 3mm;
+        background: #fffaf4;
+        break-after: avoid;
+      }
+
+      .brand-logo { height: 8mm; }
+      .brand-logo.jjirai { width: 21mm; }
+      .brand-logo.choco { width: 8mm; }
+      .nav-links { display: none; }
+
+      section {
+        min-height: calc(210mm - 27mm);
+        padding: 12mm 10mm 14mm;
+        break-after: page;
+        page-break-after: always;
+        display: flex;
+        align-items: center;
+      }
+
+      section:last-of-type { break-after: auto; page-break-after: auto; }
+      section::after {
+        width: 22mm;
+        height: 9mm;
+        right: 9mm;
+        bottom: 6mm;
+        opacity: .78;
+      }
+
+      .wrap {
+        width: 100%;
+        max-width: none;
+      }
+
+      .hero {
+        min-height: calc(210mm - 27mm);
+        grid-template-columns: 1fr 110mm;
+        gap: 14mm;
+        padding: 12mm 10mm 14mm;
+      }
+
+      h1 {
+        font-size: 39pt;
+        max-width: 140mm;
+      }
+
+      .lead {
+        max-width: 142mm;
+        font-size: 14pt;
+        line-height: 1.55;
+      }
+
+      .eyebrow { font-size: 8.5pt; }
+      .hero-logo { width: 44mm; }
+      .hero-actions { display: none; }
+      .hero-panel img { aspect-ratio: 16 / 8.5; }
+
+      .section-head {
+        grid-template-columns: 1.05fr .95fr;
+        gap: 14mm;
+        margin-bottom: 7mm;
+      }
+
+      .section-head h2 { font-size: 29pt; }
+      .section-head p { font-size: 11.5pt; }
+
+      .card,
+      .sample {
+        padding: 6mm;
+      }
+
+      .card h3,
+      .sample h3 { font-size: 15pt; }
+
+      .grid { gap: 5mm; }
+      .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+      .funnel-board {
+        grid-template-columns: 1.05fr .95fr;
+        gap: 11mm;
+        padding: 10mm;
+      }
+
+      .funnel-stage {
+        min-height: 17mm;
+        padding: 3mm 8mm;
+      }
+
+      .funnel-stage strong { font-size: 17pt; }
+      .funnel-stage span { font-size: 9pt; }
+      .funnel-result h3 { font-size: 24pt; }
+
+      .evidence-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .evidence-shot img,
+      .evidence-shot.tall img,
+      .shot img {
+        max-height: 62mm;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        object-position: top;
+      }
+
+      .phone-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .phone {
+        border-width: 5px;
+        border-radius: 16px;
+      }
+
+      .phone img {
+        height: 82mm;
+        border-radius: 10px;
+      }
+
+      .metric { min-height: 32mm; }
+      .metric b { font-size: 28pt; }
+
+      .table th,
+      .table td {
+        padding: 4mm;
+        font-size: 9.4pt;
+      }
+
+      .quote {
+        font-size: 25pt;
+        padding: 10mm;
+      }
+
+      .foot {
+        padding: 10mm;
+        break-before: page;
+      }
+
+      .card,
+      .shot,
+      .phone,
+      .sample,
+      .table,
+      .funnel-board,
+      .quote {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      a { text-decoration: underline; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a class="brand" href="#top" aria-label="찌라이와 초콜릿박스">
+      <img class="brand-logo jjirai" src="assets/jjirai-logo.svg" alt="찌라이">
+      <span class="brand-plus">×</span>
+      <img class="brand-logo choco" src="assets/chocolatebox-logo.jpg" alt="초콜릿박스">
+    </a>
+    <div class="nav-links">
+      <a href="#diagnosis">진단</a>
+      <a href="#system">프로그램 활용</a>
+      <a href="#proof">실제 결과물</a>
+      <a href="#plan">실행안</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div>
+        <span class="eyebrow">Proposal / 2026.05.12</span>
+        <h1>초콜릿박스 검색 여정에 긍정 후기와 참여 이유를 깔아두는 작업</h1>
+        <p class="lead">
+          초콜릿박스는 랜덤박스를 구매하면 상품이 랜덤으로 나오는 랜덤 쇼핑 서비스입니다.
+          찌라이는 유어사주에서 이미 운영 중인 AI 콘텐츠 생성, 휴먼화, 채널별 포맷 변환, 등록 추적 파이프라인을
+          초콜릿박스의 랜덤박스, 이벤트, 앱테크 유입, 반복 구매 전환 여정에 맞춰 적용합니다.
+        </p>
+        <img class="hero-logo" src="assets/jjirai-logo.svg" alt="찌라이">
+        <div class="hero-actions">
+          <a class="button primary" href="#plan">4주 실행안 보기</a>
+          <a class="button secondary" href="https://chocolatebox.io/" target="_blank" rel="noreferrer">초콜릿박스 사이트</a>
+        </div>
+      </div>
+      <aside class="hero-panel">
+        <img src="assets/chocolatebox-home.png" alt="초콜릿박스 웹사이트 캡쳐">
+        <div class="panel-body">
+          <strong>현재 서비스 신호</strong>
+          <span>초콜릿박스는 랜덤박스 구매와 리워드, 이벤트 참여 동기가 명확한 서비스입니다. 돈 버는 논리는 처음부터 고래를 찾는 게 아니라, 불특정다수에게 박스를 까는 맛을 먼저 느끼게 하고 그중 일부가 반복 사용으로 좁혀지는 구조입니다.</span>
+        </div>
+      </aside>
+    </section>
+
+    <section id="diagnosis">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>문제는 광고비가 아니라 검색 직전의 확신과 반복 참여 이유입니다</h2>
+          <p>
+            랜덤박스 서비스는 사용자가 앱을 설치하거나 첫 박스를 구매하기 전에 “진짜 상품이 나오나”, “누가 해봤나”, “이벤트 믿을 만한가”를 검색합니다.
+            매출은 결국 소수 반복 구매자에게서 크게 나오더라도, 그 사람들은 처음부터 따로 존재하는 고래가 아닙니다.
+            불특정다수가 한 번 까보고, 일부가 두세 번 더 해보고, 그중 더 작은 일부가 반복 사용자가 되는 깔때기를 만들어야 합니다.
+          </p>
+        </div>
+        <div class="grid three">
+          <article class="card">
+            <h3>ZMOT 공백</h3>
+            <p>초콜릿박스, 초박, 랜덤박스, 앱테크형 키워드에서 사용자가 확인할 긍정 후기와 비교 글을 먼저 만들어야 합니다.</p>
+          </article>
+          <article class="card">
+            <h3>커뮤니티 언어 부족</h3>
+            <p>브랜드 설명보다 “10만원으로 이거 뜸”, “이벤트 참여해봄”, “앱테크 루틴에 넣어봄” 같은 실제 대화체가 필요합니다.</p>
+          </article>
+          <article class="card">
+            <h3>재방문 이유 부족</h3>
+            <p>매일 공유할 이벤트, 당첨 인증, 릴레이 예측, 퀴즈형 리워드가 있어야 카페와 단톡방에서 반복 노출됩니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <h2>초박이 돈 버는 논리</h2>
+          <p>
+            핵심은 “고래를 어디서 찾을까”가 아닙니다.
+            먼저 불특정다수에게 랜덤박스를 한 번 까게 만들고, 그중 일부가 재미를 느껴 다시 들어오게 만드는 깔때기입니다.
+          </p>
+        </div>
+        <div class="funnel-board" aria-label="초박 매출 깔때기 도식">
+          <div class="funnel-stack">
+            <div class="funnel-stage" style="--w:100%;--c:#d13f32">
+              <b>01</b>
+              <div><strong>불특정다수 유입</strong><span>앱테크 · 광고 · 카페 · 릴레이 · 오픈채팅</span></div>
+            </div>
+            <div class="funnel-stage" style="--w:86%;--c:#e0712f">
+              <b>02</b>
+              <div><strong>첫 박스 클릭</strong><span>신규 포인트 · 이벤트 · 정답 공유 · 후기 인증</span></div>
+            </div>
+            <div class="funnel-stage" style="--w:72%;--c:#b1822c">
+              <b>03</b>
+              <div><strong>까는 맛 경험</strong><span>잘 나오는 느낌 · FOMO · 인증 · 밈</span></div>
+            </div>
+            <div class="funnel-stage" style="--w:58%;--c:#1f7769">
+              <b>04</b>
+              <div><strong>재방문</strong><span>오늘의 퀴즈 · 코인 · 릴레이 · 커뮤니티 반응</span></div>
+            </div>
+            <div class="funnel-stage" style="--w:44%;--c:#2a211d">
+              <b>05</b>
+              <div><strong>반복 구매자</strong><span>대량 유입 중 일부가 매출 기여자로 좁혀짐</span></div>
+            </div>
+          </div>
+          <aside class="funnel-result">
+            <span class="tag">핵심 구조</span>
+            <h3>고래를 찾는 게 아니라, 고래가 생기는 판을 넓힙니다</h3>
+            <p>초박은 “잘 나오는 랜덤박스”로 기억되어야 합니다. 처음 한 번 까보는 사람이 충분히 많아지면, 그중 일부가 자연스럽게 반복 구매자로 좁혀집니다.</p>
+            <div class="funnel-mini">
+              <div>입구: 최대한 넓게</div>
+              <div>경험: 최대한 쉽게</div>
+              <div>반복: 매일 이유 제공</div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <h2>내가 본 실제 시장 신호</h2>
+          <p>
+            내가 조사한 캡쳐들을 기준으로 보면 초콜릿박스는 완전한 무인지 서비스가 아닙니다.
+            이미 특정 방과 카페에서 이야기되고 있지만, 검색 자산과 긍정 맥락이 얇아서 확장성이 막혀 있습니다.
+          </p>
+        </div>
+        <div class="evidence-grid">
+          <article class="card evidence-shot tall">
+            <img src="pdf-images/page-02-img-01-X21.png" alt="드림박스 오픈채팅 대화 캡쳐">
+            <div class="panel-body">
+              <strong>오픈채팅: 598명 규모의 랜덤박스 대화방</strong>
+              <span>신규 유저가 “처음에 어떻게 시작했는지” 묻고, 기존 유저들이 반응합니다. 여기서 중요한 건 고래를 직접 찾는 게 아니라, 박스를 처음 까보게 만드는 입구를 넓히는 것입니다.</span>
+            </div>
+          </article>
+          <div class="evidence-stack">
+            <article class="card">
+              <h3>핵심 인사이트</h3>
+              <div class="insight-list">
+                <div class="insight">랜덤박스 매출은 “고래를 찾아내는 것”보다 “일단 많이 까보게 만드는 것”에서 시작됩니다.</div>
+                <div class="insight">불특정다수가 한 번 경험하면 그중 일부만 다음 박스로 넘어가고, 그 다음 단계에서 다시 더 좁아집니다.</div>
+                <div class="insight">오픈채팅에는 실패담, 성공담, 밈, 질문이 같이 섞여 있어 박스를 까는 재미와 FOMO가 동시에 생깁니다.</div>
+              </div>
+            </article>
+            <article class="card evidence-shot">
+              <img src="pdf-images/page-03-img-01-X27.png" alt="랜덤박스 생활비 대화 캡쳐">
+              <div class="panel-body">
+                <strong>고래가 따로 있는 게 아니라, 이 사람들 중에서 터집니다</strong>
+                <span>“생활비 아껴보려다”, “재미로 하나” 같은 사람이 먼저 들어옵니다. 초콜릿박스는 이 대중 입구를 넓히고, 첫 박스 경험 이후 일부가 반복 구매로 내려가게 만들어야 합니다.</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <h2>검색에는 공백이 있고, 커뮤니티에는 이미 형식이 있습니다</h2>
+          <p>
+            추천인 릴레이, 이벤트 공유, 행운퀴즈, 정답 공유방은 이미 유저들이 받아들이는 포맷입니다.
+            찌라이는 이 포맷을 초콜릿박스용으로 대량 변형하고, 채널별 위험도를 낮춰 배치합니다.
+          </p>
+        </div>
+        <div class="grid three">
+          <article class="card evidence-shot wide">
+              <img src="pdf-images/page-06-img-02-X53.png" alt="초콜릿박스 추천인 릴레이 검색 결과 캡쳐">
+              <div class="panel-body">
+              <strong>추천인 릴레이도 마케팅 지점입니다</strong>
+              <span>추천인 릴레이, 완료 인증, 댓글 릴레이는 이미 유저들이 받아들이는 형식입니다. 이런 지점을 분석해서 초콜릿박스용 원고와 계정 운영으로 모두 침투합니다.</span>
+            </div>
+          </article>
+          <article class="card evidence-shot wide">
+            <img src="pdf-images/page-07-img-01-X60.png" alt="네이버 카페 초콜릿박스 검색 결과 캡쳐">
+            <div class="panel-body">
+              <strong>35만명 카페에 검색 결과 3개</strong>
+              <span>대형 카페에서도 초콜릿박스 검색 결과가 거의 없습니다. 이벤트나 앱테크 소재만 제대로 올려도 빈 검색면을 선점할 수 있습니다.</span>
+            </div>
+          </article>
+          <article class="card evidence-shot wide">
+              <img src="pdf-images/page-05-img-01-X42.png" alt="행운퀴즈 오픈채팅 검색 결과 캡쳐">
+              <div class="panel-body">
+              <strong>앱테크 방에 바로 올릴 수 있습니다</strong>
+              <span>토스/오퀴즈/행운퀴즈 방은 100명, 1,000명, 2,000명 단위로 운영됩니다. 초콜릿박스 이벤트를 퀴즈/포인트/정답 공유 형태로 만들어 이 방들에 올리면 자연 유입을 만들 수 있습니다.</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <h2>리텐션은 “매일 공유할 이유”에서 만들어집니다</h2>
+          <p>
+            사주나루의 나루퀴즈처럼 우리도 퀴즈를 맞추게 하고 코인을 주는 구조를 만들어야 합니다.
+            퀴즈, 정답 공유, 코인 보상, 카페 게시글이 묶이면 커뮤니티에서 매일 다시 이야기할 소재가 생깁니다.
+          </p>
+        </div>
+        <div class="grid three">
+          <article class="card evidence-shot">
+            <img src="pdf-images/page-07-img-02-X61.png" alt="나루퀴즈 화면 캡쳐">
+            <div class="panel-body">
+              <strong>퀴즈 참여 화면</strong>
+              <span>질문과 선택지, 누적 코인 구조가 명확합니다. 초콜릿박스도 오늘의 박스, 오늘의 상품, 이벤트 정답형 콘텐츠로 변형 가능합니다.</span>
+            </div>
+          </article>
+          <article class="card evidence-shot">
+            <img src="pdf-images/page-08-img-01-X68.png" alt="나루퀴즈 정답 카페 글 캡쳐">
+            <div class="panel-body">
+              <strong>정답 공유 게시글</strong>
+              <span>카페 회원이 자발적으로 정답을 올리고 조회가 발생합니다. 카페 제재를 피하려면 광고가 아니라 유용한 정보 공유 형태여야 합니다.</span>
+            </div>
+          </article>
+          <article class="card evidence-shot">
+            <img src="pdf-images/page-08-img-02-X69.png" alt="300코인 보상 팝업 캡쳐">
+            <div class="panel-body">
+              <strong>300코인 보상</strong>
+              <span>작은 보상도 반복 행동을 만듭니다. 초콜릿박스는 보상 규모보다 매일 확인할 이벤트 리듬을 설계하는 것이 중요합니다.</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="system">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>찌라이로 하는 일은 원고 작성이 아니라 운영 가능한 채널 생산입니다</h2>
+          <p>
+            사람 손으로 한두 개 쓰는 작업이 아니라, 페르소나와 채널 규칙을 고정한 뒤 다량의 원고를 만들고,
+            검수하고, 등록 상태를 남기는 방식으로 운영합니다.
+          </p>
+        </div>
+        <div class="grid three">
+          <article class="card metric">
+            <b>625</b>
+            <span>생성된 유어사주 채널 payload</span>
+            <p>네이버 블로그, 네이버 카페, 티스토리, 워드프레스, 디시인사이드, 다음 테이블 등 채널별 JSON 원고와 등록 데이터.</p>
+          </article>
+          <article class="card metric">
+            <b>166</b>
+            <span>유어사주 결과 이미지 에셋</span>
+            <p>만세력, 오행, 궁합 점수, 섹션별 풀이 이미지를 콘텐츠 본문과 매칭해 사용.</p>
+          </article>
+          <article class="card metric">
+            <b>50</b>
+            <span>2026-05-07 단일 배치 발행 요청</span>
+            <p>블로그, 카페, 티스토리, 워드프레스, 디시를 묶어 생성 및 publish job까지 연결한 실제 작업 로그 기준.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <h2>프로그램 활용 구조</h2>
+          <p>초콜릿박스용으로 회사 프로필, 페르소나, 채널 인벤토리, 금지 표현, 등록 ledger를 분리해서 운영합니다.</p>
+        </div>
+        <div class="flow">
+          <div class="flow-item">
+            <div>
+              <h3>키워드와 커뮤니티 맵 구성</h3>
+              <p>초콜릿박스, 초박, 랜덤박스, 앱테크, 이벤트 당첨, 포인트, 리워드 쇼핑 키워드를 검색 의도별로 나눕니다.</p>
+            </div>
+          </div>
+          <div class="flow-item">
+            <div>
+              <h3>페르소나별 후기 생성</h3>
+              <p>앱테크 유저, 랜덤박스 호기심 유저, 이벤트 참여 유저, 선물 구매 유저 등으로 말투와 관심사를 분리합니다.</p>
+            </div>
+          </div>
+          <div class="flow-item">
+            <div>
+              <h3>채널 포맷 변환</h3>
+              <p>네이버 카페는 짧고 자연스러운 질문형, 블로그/워드프레스/티스토리는 검색형 후기, 디시는 직접 링크 없는 반응형, 다음 테이블은 타깃 게시판 맞춤형으로 변환합니다.</p>
+            </div>
+          </div>
+          <div class="flow-item">
+            <div>
+              <h3>휴먼화 검수</h3>
+              <p>광고 티 나는 문장, 과장 수익 표현, 확률 보장, 현금성 오해, 반복 문체를 제거한 뒤 등록합니다.</p>
+            </div>
+          </div>
+          <div class="flow-item">
+            <div>
+              <h3>등록 및 추적</h3>
+              <p>채널, 계정, 타깃, 제목, pid, publish job, 발행 URL을 ledger에 남겨 다음 배치에서 중복과 리스크를 줄입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="proof">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>실제 작업 결과물 캡쳐</h2>
+          <p>아래 이미지는 유어사주에서 찌라이 파이프라인으로 만든 공개 산출물과 원본 콘텐츠 에셋입니다.</p>
+        </div>
+        <div class="grid three">
+          <article class="card shot">
+            <img src="assets/yoursaju-tistory-live.png" alt="유어사주 티스토리 공개 글 캡쳐">
+            <div class="panel-body">
+              <strong>티스토리 공개 글</strong>
+              <span><a href="https://journald.tistory.com/4" target="_blank" rel="noreferrer">journald.tistory.com/4</a> · 2026-05-04 발행 로그 기반</span>
+            </div>
+          </article>
+          <article class="card shot">
+            <img src="assets/yoursaju-naver-live.png" alt="유어사주 네이버 블로그 공개 글 캡쳐">
+            <div class="panel-body">
+              <strong>네이버 블로그 공개 글</strong>
+              <span><a href="https://blog.naver.com/cjfrl5/224274896658" target="_blank" rel="noreferrer">blog.naver.com/cjfrl5/224274896658</a> · 자연 후기형 콘텐츠</span>
+            </div>
+          </article>
+          <article class="card shot">
+            <img src="assets/yoursaju-dc-live-1.png" alt="유어사주 디시인사이드 공개 글 캡쳐">
+            <div class="panel-body">
+              <strong>디시인사이드 공개 글</strong>
+              <span><a href="https://gall.dcinside.com/mgallery/board/view/?id=entj&no=29297&page=1" target="_blank" rel="noreferrer">ENTJ 갤러리 공개 글</a> · 조회수/댓글/추천 수 측정 가능</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <h2>결과 이미지까지 콘텐츠화할 수 있습니다</h2>
+          <p>유어사주에서는 실제 사주/궁합 결과를 이미지와 본문으로 묶어 블로그형 콘텐츠에 사용했습니다. 초콜릿박스도 이벤트 페이지, 당첨 화면, 리워드 내역, 상품 캡쳐를 같은 방식으로 활용할 수 있습니다.</p>
+        </div>
+        <div class="phone-grid">
+          <div>
+            <div class="phone"><img src="assets/yoursaju-saju-section.png" alt="유어사주 사주 풀이 섹션 이미지"></div>
+            <p class="caption">사주 풀이 섹션 이미지. 본문 소재와 이미지 인덱스를 맞춰 사용.</p>
+          </div>
+          <div>
+            <div class="phone"><img src="assets/yoursaju-goonghap-score.png" alt="유어사주 궁합 점수 이미지"></div>
+            <p class="caption">궁합 점수형 이미지. 초콜릿박스에서는 이벤트 결과, 포인트, 당첨 인증으로 치환 가능.</p>
+          </div>
+          <div>
+            <div class="phone"><img src="assets/yoursaju-manse.png" alt="유어사주 만세력 이미지"></div>
+            <p class="caption">원본 결과 상세 이미지. 긴 세로형 캡쳐도 블로그와 카페 본문에 맞게 삽입 가능.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <h2>초콜릿박스에 적용할 채널별 작업</h2>
+          <p>광고 소재를 많이 만드는 방식이 아니라, 검색과 커뮤니티에 남는 작은 신뢰 신호를 계속 쌓습니다.</p>
+        </div>
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>핵심 사업 가설</th>
+              <td>랜덤박스는 처음부터 고래를 찾아 설득하는 사업이 아닙니다. 불특정다수에게 “한 번 까보는 맛”을 느끼게 하고, 그중 일부가 다시 사고, 그중 더 작은 일부가 반복 구매자가 되는 깔때기 사업입니다. 오픈채팅, 추천인 릴레이, 앱테크 방처럼 “사람들이 서로 확인하는 공간”이 이 입구를 넓힙니다.</td>
+            </tr>
+            <tr>
+              <th>네이버 카페</th>
+              <td>앱테크, 이벤트, 랜덤박스, 선물/득템 카페에 질문형 후기와 이벤트 공유글 배치. 대형 카페 검색 결과가 적은 곳은 이벤트 공유글로 선점하고, 기존 릴레이가 있는 곳은 더 자연스러운 추천인/후기형으로 보강합니다.</td>
+            </tr>
+            <tr>
+              <th>블로그 / 티스토리</th>
+              <td>초콜릿박스, 초박, 랜덤박스 추천, 앱테크 이벤트, 리워드 쇼핑 키워드에 맞춘 검색형 후기와 비교 글 생성.</td>
+            </tr>
+            <tr>
+              <th>워드프레스</th>
+              <td>롱테일 검색 키워드용 독립 글을 배치합니다. “랜덤박스 앱 비교”, “초콜릿박스 후기”, “더블업 초박 비교”처럼 검색 의도가 분명한 글을 쌓아 검색면을 넓힙니다.</td>
+            </tr>
+            <tr>
+              <th>디시 / 커뮤니티</th>
+              <td>직접 링크보다 반응, 인증, 질문, 비교 맥락을 우선. 고위험 채널은 링크 없이 브랜드명/초성/검색 유도만 사용. 조회수와 댓글 반응을 추적합니다.</td>
+            </tr>
+            <tr>
+              <th>다음 테이블</th>
+              <td>앱테크, 이벤트, 포인트, 랜덤 쇼핑에 맞는 게시판을 찾아 정보 공유형 글을 배치합니다. 게시판별 반응을 보고 살아있는 타깃만 남깁니다.</td>
+            </tr>
+            <tr>
+              <th>카톡 / 오픈채팅</th>
+              <td>당첨 인증, 오늘의 박스, 이벤트 캘린더, 릴레이 예측처럼 매일 이야기할 소재를 공급. 이미 598명 규모의 랜덤박스 대화방이 확인되므로, 직접 운영보다 관찰, 소재 공급, 공식 커뮤니티 전환을 단계적으로 검토합니다.</td>
+            </tr>
+            <tr>
+              <th>이벤트 리텐션</th>
+              <td>나루퀴즈처럼 정답 공유와 작은 코인 보상을 묶어 매일 반복되는 이유를 만듭니다. 확률 보장이나 수익 보장 표현은 쓰지 않고, 이벤트 정보/정답/참여 후기 중심으로 확산합니다.</td>
+            </tr>
+            <tr>
+              <th>경쟁사 키워드</th>
+              <td>더블업, 랜덤박스, 오픈박스 등 경쟁/인접 키워드와 엮어 검색면에 들어갑니다. 포지션은 “배송시킬 건 더블업이 많을 수 있지만, 잘 나오는 느낌은 초박”처럼 솔직한 비교형으로 잡습니다.</td>
+            </tr>
+            <tr>
+              <th>네이버 검색광고</th>
+              <td>초콜릿박스/초박 직접 키워드, 앱테크 키워드, 더블업 등 경쟁사 키워드를 광고그룹으로 나누고 자동입찰로 관리합니다. 커뮤니티 작업으로 검색량을 만들고, 검색광고로 그 수요를 회수합니다.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <h2>뿌릴 곳과 측정할 것</h2>
+          <p>
+            찌라이는 원고만 만들지 않고, 채널별로 어디에 뿌렸는지와 어떤 반응이 있었는지 추적합니다.
+            카페와 디시처럼 조회수가 보이는 채널은 숫자로 보고, 검색형 채널은 URL과 키워드별 노출 상태를 남깁니다.
+          </p>
+        </div>
+        <div class="grid three">
+          <article class="card">
+            <h3>배포 채널</h3>
+            <p>네이버 카페, 네이버 블로그, 티스토리, 워드프레스, 디시인사이드, 다음 테이블, 앱테크 오픈채팅, 추천인 릴레이형 게시판, 네이버 검색광고.</p>
+          </article>
+          <article class="card">
+            <h3>측정 지표</h3>
+            <p>카페 조회수, 디시 조회수, 댓글 수, 대댓글 반응, 추천인 릴레이 참여, 검색 결과 URL, 광고 CPC/CTR, 키워드별 전환, 발행 성공/실패, 채널별 삭제/제재 여부.</p>
+          </article>
+          <article class="card">
+            <h3>운영 방식</h3>
+            <p>각 글과 광고 키워드는 채널, 계정, 타깃, 제목, 키워드, 발행 URL, 입찰가, 조회수 기록 시점, 다음 액션을 ledger에 남깁니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <h2>네이버 광고도 액티브하게 관리합니다</h2>
+          <p>
+            커뮤니티 침투만 하는 게 아니라, 네이버 검색광고도 자동입찰 프로그램으로 같이 돌립니다.
+            검색 수요가 생기는 키워드는 광고로 즉시 받아내고, 성과가 약한 키워드는 자동으로 줄입니다.
+          </p>
+        </div>
+        <div class="grid three">
+          <article class="card">
+            <h3>키워드 구조</h3>
+            <p>초콜릿박스, 초박, 랜덤박스, 앱테크, 추천인, 행운퀴즈, 더블업 비교, 랜덤박스 후기처럼 직접/비교/앱테크/경쟁사 키워드로 광고그룹을 나눕니다.</p>
+          </article>
+          <article class="card">
+            <h3>자동입찰</h3>
+            <p>클릭률, CPC, 전환 가능성, 검색면 점유 여부를 보고 키워드별 입찰가를 조정합니다. 반응 좋은 키워드는 올리고, 낭비 키워드는 낮추거나 중지합니다.</p>
+          </article>
+          <article class="card">
+            <h3>콘텐츠와 연결</h3>
+            <p>광고로 유입된 키워드는 블로그/카페/워드프레스 원고에도 바로 반영합니다. 광고 데이터가 다음 찌라이 배포 주제를 정하는 피드백이 됩니다.</p>
+          </article>
+        </div>
+        <table class="table" style="margin-top:18px">
+          <tbody>
+            <tr>
+              <th>직접 키워드</th>
+              <td>초콜릿박스, 초박, 초콜릿박스 랜덤박스, 초박 후기. 전환 의향이 높으므로 입찰가를 적극적으로 가져갑니다.</td>
+            </tr>
+            <tr>
+              <th>앱테크 키워드</th>
+              <td>앱테크 이벤트, 행운퀴즈, 포인트 받는 앱, 랜덤박스 이벤트. 대량 유입용으로 예산을 통제하면서 테스트합니다.</td>
+            </tr>
+            <tr>
+              <th>경쟁사/비교 키워드</th>
+              <td>더블업, 오픈박스, 랜덤박스 추천, 랜덤박스 비교. “잘 나오는 건 초박” 포지션으로 검색 결과를 가로챕니다.</td>
+            </tr>
+            <tr>
+              <th>운영 리포트</th>
+              <td>키워드별 노출, 클릭, CPC, CTR, 전환 추정, 입찰가 변경 이력, 다음 액션을 정리합니다. 커뮤니티 조회수와 광고 성과를 같이 봅니다.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="band" id="plan">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>4주 파일럿 실행안</h2>
+          <p>처음부터 과하게 확장하지 않고, 검색 ZMOT와 커뮤니티 반응을 확인할 수 있는 단위로 시작합니다.</p>
+        </div>
+        <div class="grid two">
+          <article class="card">
+            <h3>1주차: 시장 맵과 샘플 제작</h3>
+            <p>초콜릿박스/초박/랜덤박스/앱테크/행운퀴즈/추천인 릴레이 키워드 60개, 타깃 카페/오픈채팅/커뮤니티 후보 80개, 페르소나 6개, 채널별 금지 표현 정리. 샘플 원고 30개 제작.</p>
+          </article>
+          <article class="card">
+            <h3>2주차: 검색 자산 배치</h3>
+            <p>블로그/티스토리 검색형 후기와 카페 질문형 글을 먼저 배치. “초콜릿박스 해본 사람”, “초박 앱테크”, “랜덤박스 후기” 검색 전환 전의 참고 자료를 만듭니다.</p>
+          </article>
+          <article class="card">
+            <h3>3주차: 이벤트와 퀴즈 확산</h3>
+            <p>앱테크, 포인트, 신규 가입 혜택, 오늘의 이벤트, 정답 공유, 추천인 릴레이 소재를 채널별로 변형해 반복 노출합니다.</p>
+          </article>
+          <article class="card">
+            <h3>4주차: 성과 정리와 확장 판단</h3>
+            <p>노출 URL, 검색 반응, 댓글/조회 반응, 릴레이 참여 여부, 앱테크 방 반응, 채널 리스크, 다음 달 확대 키워드를 정리해 운영안을 조정합니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <h2>샘플 원고 방향</h2>
+          <p>아래는 초콜릿박스에 맞춘 톤 예시입니다. 실제 등록 전에는 브랜드 검수와 채널 규칙에 맞춰 다시 휴먼화합니다.</p>
+        </div>
+        <div class="grid three">
+          <article class="sample">
+            <span class="label">Naver Cafe</span>
+            <h3>더블업이랑 초박 둘 다 해본 사람?</h3>
+            <p>솔직히 더블업이 배송시킬 건 더 많은 것 같긴 한데, 주변 얘기 들어보면 잘 나오는 건 초박이라는 말이 있더라고요. 앱테크 방에서 보고 깔아봤는데 신규 포인트도 있어서 첫 박스는 부담 없었습니다.</p>
+            <div class="pill-list">
+              <span class="pill">경쟁사 키워드</span><span class="pill">잘나오는 포지션</span><span class="pill">솔직한 비교</span>
+            </div>
+          </article>
+          <article class="sample">
+            <span class="label">Blog SEO</span>
+            <h3>더블업 초박 비교, 뭐가 더 잘 나오는 느낌일까</h3>
+            <p>랜덤박스 앱을 찾다가 더블업과 초콜릿박스를 같이 봤습니다. 배송 가능한 상품 수는 더블업이 많아 보였지만, 초박은 이벤트와 첫 보상 흐름이 가벼워서 한 번 더 까보게 되는 쪽이었습니다.</p>
+            <div class="pill-list">
+              <span class="pill">검색형</span><span class="pill">비교 후기</span><span class="pill">더블업</span>
+            </div>
+          </article>
+          <article class="sample">
+            <span class="label">Community</span>
+            <h3>오늘 이벤트 정답 공유</h3>
+            <p>초콜릿박스 오늘 이벤트 정답만 공유함. 보상은 크다기보다 매일 확인하는 재미 쪽이고, 랜덤박스 좋아하는 사람은 포인트 쌓는 루틴으로 볼 만함.</p>
+            <div class="pill-list">
+              <span class="pill">정답 공유</span><span class="pill">리텐션</span><span class="pill">과장 제거</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="quote">
+          목표는 “광고를 봤다”가 아니라 “검색해보니 사람들이 이미 이야기하고 있다”는 상태를 만드는 것입니다.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <strong>운영 원칙</strong>
+      <p>
+        확률 조작, 수익 보장, 당첨 보장, 현금성 오해를 유발하는 표현은 사용하지 않습니다.
+        초콜릿박스의 공식 정책과 앱스토어/플레이스토어 고지에 맞춰 후기형, 정보형, 이벤트 공유형으로만 운영합니다.
+      </p>
+      <div class="source-links">
+        <a href="https://chocolatebox.io/" target="_blank" rel="noreferrer">초콜릿박스 공식 사이트</a>
+        <a href="https://play.google.com/store/apps/details?id=io.chocolatebox.app" target="_blank" rel="noreferrer">Google Play</a>
+        <a href="https://apps.apple.com/kr/app/id6749605057" target="_blank" rel="noreferrer">App Store</a>
+        <a href="https://yoursaju.kr" target="_blank" rel="noreferrer">유어사주</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

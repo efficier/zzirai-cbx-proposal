@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="280" viewBox="0 0 720 280" role="img" aria-labelledby="title desc">
+  <title id="title">찌라이 로고</title>
+  <desc id="desc">노란 바탕에 빨간색 찌라이 글자</desc>
+  <rect width="720" height="280" rx="34" fill="#ffd91f"/>
+  <rect x="18" y="18" width="684" height="244" rx="26" fill="none" stroke="#e3342f" stroke-width="8"/>
+  <text x="360" y="164"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        font-family="Apple SD Gothic Neo, Noto Sans KR, Arial, sans-serif"
+        font-size="112"
+        font-weight="900"
+        letter-spacing="0"
+        fill="#e3342f">찌라이</text>
+  <text x="360" y="224"
+        text-anchor="middle"
+        font-family="Apple SD Gothic Neo, Noto Sans KR, Arial, sans-serif"
+        font-size="26"
+        font-weight="800"
+        fill="#7d1e17">커뮤니티 바이럴 자동화</text>
+</svg>
